@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>网页 · AI 对话桥</title>
+  <link rel="stylesheet" href="/static/styles.css">
+  <script src="/static/app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <div><strong>网页 · AI 对话桥</strong><span>上传数据，在网页补充信息，回到同一条 AI 对话继续。</span></div>
+    <button id="change-token" class="quiet" type="button">更换访问凭证</button>
+  </header>
+  <main>
+    <section id="auth-panel" class="card auth-panel" hidden aria-labelledby="auth-title">
+      <h1 id="auth-title">连接网页</h1>
+      <p>请使用服务启动时给出的完整链接，或在这里填写网页访问凭证。</p>
+      <form id="auth-form">
+        <label for="access-token">访问凭证</label>
+        <div class="inline"><input id="access-token" type="password" autocomplete="off" required><button type="submit">连接</button></div>
+      </form>
+    </section>
+    <div id="notice" class="notice" role="status" hidden></div>
+    <div id="demo-notice" class="notice demo" hidden>演示模式：未连接真实 AI。上传后会生成一个示例问题，网页回复只演示回调流程。</div>
+    <div id="workspace" class="workspace" hidden>
+      <aside>
+        <section class="card" aria-labelledby="upload-title">
+          <h2 id="upload-title">上传新任务</h2>
+          <form id="upload-form">
+            <label for="task-title">任务名称</label>
+            <input id="task-title" maxlength="200" placeholder="例如：整理这份需求" required>
+            <label for="task-message">需要 AI 处理的内容</label>
+            <textarea id="task-message" rows="4" maxlength="24000" placeholder="说明目标、输出形式或需要重点核对的内容。"></textarea>
+            <label for="task-files">附加文件</label>
+            <input id="task-files" type="file" multiple>
+            <p id="upload-limits" class="muted">文件保存在服务所在机器，网页不会执行文件内容。</p>
+            <button id="upload-submit" class="primary full" type="submit">上传并开始对话</button>
+            <p id="upload-error" class="error" role="alert" hidden></p>
+          </form>
+        </section>
+        <section class="card task-list-card" aria-labelledby="list-title">
+          <div class="section-heading"><h2 id="list-title">任务</h2><span id="task-count" class="muted">0</span></div>
+          <nav id="task-list" aria-label="任务列表"></nav>
+        </section>
+      </aside>
+      <section id="task-detail" class="card detail" aria-label="当前任务">
+        <div class="empty"><h2>选择或上传一个任务</h2><p>待回复问题与回调状态会显示在这里。</p></div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

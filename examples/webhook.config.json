@@ -1,0 +1,8 @@
+{
+  "adapter": "webhook",
+  "host": "127.0.0.1",
+  "port": 8765,
+  "callback_url": "http://127.0.0.1:9100/events",
+  "callback_token": "replace-with-your-receiver-token",
+  "callback_timeout": 30
+}

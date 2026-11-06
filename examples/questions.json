@@ -1,0 +1,9 @@
+{
+  "questions": [
+    {
+      "id": "output_format",
+      "title": "希望将这份资料整理成什么形式？",
+      "options": ["简要摘要", "逐项检查清单"]
+    }
+  ]
+}

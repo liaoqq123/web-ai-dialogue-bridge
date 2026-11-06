@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "project_id": "replace-with-local-project-id",
+  "project_path": "C:/projects/my-app",
+  "host_id": "local",
+  "caller_thread_id": "replace-with-calling-chat-id",
+  "pipe_path": "\\\\.\\pipe\\replace-with-current-desktop-tools-pipe"
+}
