@@ -217,7 +217,7 @@ class AdapterTests(unittest.TestCase):
 
     def test_desktop_adapter_builds_local_cli_flow_without_exposing_binding(self):
         with tempfile.TemporaryDirectory() as temp:
-            root = Path(temp)
+            root = Path(temp).resolve()
             calls = []
 
             class Client:
