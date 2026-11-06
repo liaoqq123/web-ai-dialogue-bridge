@@ -198,6 +198,8 @@ class ServerTests(unittest.TestCase):
             if path == directory:
                 class Reparse:
                     st_file_attributes = 0x400
+                    def __getattr__(self, name):
+                        return getattr(result, name)
                 return Reparse()
             return result
         with patch.object(Path, "lstat", fake_lstat):
